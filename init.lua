@@ -10,8 +10,8 @@ local obj = {
 obj.__index = obj
 
 -- Metadata
-obj.name = "HammerspoonShiftIt"
-obj.version = "1.1"
+obj.name = "HammerspoonShiftItBob"
+obj.version = "1.2"
 obj.author = "Peter Klijn"
 obj.homepage = "https://github.com/peterklijn/hammerspoon-shiftit"
 obj.license = "https://github.com/peterklijn/hammerspoon-shiftit/blob/master/LICENSE.md"
