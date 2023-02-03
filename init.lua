@@ -59,7 +59,7 @@ local units = {
   botright = function(x, y) return { x = 1 - (x / 100), y = 1 - (y / 100), w = x / 100, h = y / 100 } end,
   
   first_third   = { x = 0.00, y = 0.00, w = 33 / 100, h = 1.00 },
-  second_third  = { x = 33 / 100, y = 0.00, w = 33 / 100, h = 1.00 },
+  second_third  = { x = 33 / 100, y = 0.00, w = 34 / 100, h = 1.00 },
   third_third   = { x = 67 / 100, y = 0.00, w = 33 / 100, h = 1.00 },
 
   maximum = { x = 0.00, y = 0.00, w = 1.00, h = 1.00 },
