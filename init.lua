@@ -13,7 +13,7 @@ obj.__index = obj
 obj.name = "HammerspoonShiftItBob"
 obj.version = "1.2"
 obj.author = "Peter Klijn"
-obj.homepage = "https://github.com/peterklijn/hammerspoon-shiftit"
+obj.homepage = "https://github.com/bobpattersonjr/hammerspoon-shiftit"
 obj.license = "https://github.com/peterklijn/hammerspoon-shiftit/blob/master/LICENSE.md"
 
 local hyper = {"cmd","alt","shift","ctrl"}
