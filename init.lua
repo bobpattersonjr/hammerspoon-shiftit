@@ -2,7 +2,7 @@
 ---
 --- Manages windows and positions in MacOS with key binding from ShiftIt.
 ---
---- Download: https://github.com/peterklijn/hammerspoon-shiftit/raw/master/Spoons/ShiftIt.spoon.zip
+--- Download: https://github.com/bobpattersonjr/hammerspoon-shiftit/raw/master/Spoons/ShiftIt.spoon.zip
 
 local obj = {
   hs = hs
