@@ -16,24 +16,35 @@ obj.author = "Peter Klijn"
 obj.homepage = "https://github.com/peterklijn/hammerspoon-shiftit"
 obj.license = "https://github.com/peterklijn/hammerspoon-shiftit/blob/master/LICENSE.md"
 
+local hyper = {"cmd","alt","shift","ctrl"}
+local meh = {"alt","shift","ctrl"}
+
 obj.mash = { 'ctrl', 'alt', 'cmd' }
+
 obj.mapping = {
-  left = { obj.mash, 'left' },
-  right = { obj.mash, 'right' },
-  up = { obj.mash, 'up' },
-  down = { obj.mash, 'down' },
-  upleft = { obj.mash, '1' },
-  upright = { obj.mash, '2' },
-  botleft = { obj.mash, '3' },
-  botright = { obj.mash, '4' },
-  maximum = { obj.mash, 'm' },
-  toggleFullScreen = { obj.mash, 'f' },
-  toggleZoom = { obj.mash, 'z' },
-  center = { obj.mash, 'c' },
-  nextScreen = { obj.mash, 'n' },
-  previousScreen = { obj.mash, 'p' },
-  resizeOut = { obj.mash, '=' },
-  resizeIn = { obj.mash, '-' },
+  left = { hyper, 'left' },
+  right = { hyper, 'right' },
+  up = { hyper, 'up' },
+  down = { hyper, 'down' },
+  left = { hyper, 'h' },
+  down = { hyper, 'j' },
+  up = { hyper, 'k' },
+  right = { hyper, 'l' },
+  upleft = { hyper, '1' },
+  upright = { hyper, '2' },
+  botleft = { hyper, '3' },
+  botright = { hyper, '4' },
+  maximum = { hyper, 'm' },
+  toggleFullScreen = { hyper, 'f' },
+  toggleZoom = { hyper, 'z' },
+  center = { hyper, 'c' },
+  nextScreen = { hyper, 'n' },
+  previousScreen = { hyper, 'p' },
+  resizeOut = { hyper, '=' },
+  resizeIn = { hyper, '-' },
+  first_third   = { hyper, 'y' },
+  second_third  = { hyper, 'u' },
+  third_third  = { hyper, 'i' },
 }
 
 local units = {
@@ -46,6 +57,10 @@ local units = {
   upright  = function(x, y) return { x = 1 - (x / 100), y = 0.00, w = x / 100, h = y / 100 } end,
   botleft  = function(x, y) return { x = 0.00, y = 1 - (y / 100), w = x / 100, h = y / 100 } end,
   botright = function(x, y) return { x = 1 - (x / 100), y = 1 - (y / 100), w = x / 100, h = y / 100 } end,
+  
+  first_third   = { x = 0.00, y = 0.00, w = 33 / 100, h = 1.00 },
+  second_third  = { x = 33 / 100, y = 0.00, w = 33 / 100, h = 1.00 },
+  third_third   = { x = 67 / 100, y = 0.00, w = 33 / 100, h = 1.00 },
 
   maximum = { x = 0.00, y = 0.00, w = 1.00, h = 1.00 },
 }
@@ -160,6 +175,12 @@ function obj:botleft() self:moveWithCycles(units.botleft) end
 
 function obj:botright() self:moveWithCycles(units.botright) end
 
+function obj:first_third() self:move(units.first_third) end
+
+function obj:second_third() self:move(units.second_third) end
+
+function obj:third_third() self:move(units.third_third) end
+
 function obj:maximum()
   latestMove.direction = 'maximum'
   self:move(units.maximum)
@@ -222,6 +243,9 @@ function obj:bindHotkeys(mapping)
   self.hs.hotkey.bind(self.mapping.upright[1], self.mapping.upright[2], function() self:upright() end)
   self.hs.hotkey.bind(self.mapping.botleft[1], self.mapping.botleft[2], function() self:botleft() end)
   self.hs.hotkey.bind(self.mapping.botright[1], self.mapping.botright[2], function() self:botright() end)
+  self.hs.hotkey.bind(self.mapping.first_third[1], self.mapping.first_third[2], function() self:first_third() end)
+  self.hs.hotkey.bind(self.mapping.second_third[1], self.mapping.second_third[2], function() self:second_third() end)
+  self.hs.hotkey.bind(self.mapping.third_third[1], self.mapping.third_third[2], function() self:third_third() end)
   self.hs.hotkey.bind(self.mapping.maximum[1], self.mapping.maximum[2], function() self:maximum() end)
   self.hs.hotkey.bind(self.mapping.toggleFullScreen[1], self.mapping.toggleFullScreen[2], function()
     self:toggleFullScreen()
@@ -273,6 +297,8 @@ function obj:setWindowCyclingSizes(stepsX, stepsY, skip_print)
 end
 
 -- Set default steps to 50%, as it's the ShiftIt default
-obj:setWindowCyclingSizes({ 50 }, { 50 }, true)
+obj:setWindowCyclingSizes({ 50, 33, 67 }, { 50 })
+
+-- spoon.ShiftIt:setWindowCyclingSizes({ 50, 33, 67 }, { 50 })
 
 return obj
