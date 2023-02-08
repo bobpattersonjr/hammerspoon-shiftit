@@ -30,10 +30,10 @@ obj.mapping = {
   down = { hyper, 'j' },
   up = { hyper, 'k' },
   right = { hyper, 'l' },
-  upleft = { hyper, '1' },
-  upright = { hyper, '2' },
-  botleft = { hyper, '3' },
-  botright = { hyper, '4' },
+  -- upleft = { hyper, '1' },
+  -- upright = { hyper, '2' },
+  -- botleft = { hyper, '3' },
+  -- botright = { hyper, '4' },
   maximum = { hyper, 'm' },
   toggleFullScreen = { hyper, 'f' },
   toggleZoom = { hyper, 'z' },
@@ -239,10 +239,10 @@ function obj:bindHotkeys(mapping)
   self.hs.hotkey.bind(self.mapping.right[1], self.mapping.right[2], function() self:right() end)
   self.hs.hotkey.bind(self.mapping.up[1], self.mapping.up[2], function() self:up() end)
   self.hs.hotkey.bind(self.mapping.down[1], self.mapping.down[2], function() self:down() end)
-  self.hs.hotkey.bind(self.mapping.upleft[1], self.mapping.upleft[2], function() self:upleft() end)
-  self.hs.hotkey.bind(self.mapping.upright[1], self.mapping.upright[2], function() self:upright() end)
-  self.hs.hotkey.bind(self.mapping.botleft[1], self.mapping.botleft[2], function() self:botleft() end)
-  self.hs.hotkey.bind(self.mapping.botright[1], self.mapping.botright[2], function() self:botright() end)
+  -- self.hs.hotkey.bind(self.mapping.upleft[1], self.mapping.upleft[2], function() self:upleft() end)
+  -- self.hs.hotkey.bind(self.mapping.upright[1], self.mapping.upright[2], function() self:upright() end)
+  -- self.hs.hotkey.bind(self.mapping.botleft[1], self.mapping.botleft[2], function() self:botleft() end)
+  -- self.hs.hotkey.bind(self.mapping.botright[1], self.mapping.botright[2], function() self:botright() end)
   self.hs.hotkey.bind(self.mapping.first_third[1], self.mapping.first_third[2], function() self:first_third() end)
   self.hs.hotkey.bind(self.mapping.second_third[1], self.mapping.second_third[2], function() self:second_third() end)
   self.hs.hotkey.bind(self.mapping.third_third[1], self.mapping.third_third[2], function() self:third_third() end)
