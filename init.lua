@@ -297,7 +297,7 @@ function obj:setWindowCyclingSizes(stepsX, stepsY, skip_print)
 end
 
 -- Set default steps to 50%, as it's the ShiftIt default
-obj:setWindowCyclingSizes({ 50, 33, 67 }, { 50 })
+obj:setWindowCyclingSizes({ 50, 33, 67 }, { 50, 33, 67 })
 
 -- spoon.ShiftIt:setWindowCyclingSizes({ 50, 33, 67 }, { 50 })
 
